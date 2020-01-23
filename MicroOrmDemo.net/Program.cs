@@ -3,6 +3,7 @@ using MicroOrmDemo.net.Dapper;
 using MicroOrmDemo.net.EF;
 using MicroOrmDemo.net.Massive;
 using MicroOrmDemo.net.MicroLite;
+using MicroOrmDemo.net.Mighty;
 using MicroOrmDemo.net.NPoco;
 using MicroOrmDemo.net.OrmLite;
 using MicroOrmDemo.net.PetaPocoRepoSample;
@@ -134,6 +135,13 @@ namespace MicroOrmDemo.net
             //watch.Stop();
             //Console.WriteLine("MicroLite : " + watch.ElapsedMilliseconds);
 
+            var mightyQuery = new MightyQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataMighty = mightyQuery.GetOrders();
+            watch.Stop();
+            Console.WriteLine("Mighty : " + watch.ElapsedMilliseconds);
+
             var nPocoQuery = new NPocoQueries();
             watch = new Stopwatch();
             watch.Start();
@@ -224,6 +232,13 @@ namespace MicroOrmDemo.net
             //var dataPetaPoco = petaPocoQuery.GetOrders(calls);
             //watch.Stop();
             //Console.WriteLine("PetaPoco : " + watch.ElapsedMilliseconds);
+
+            var mightyQuery = new MightyQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataMighty = mightyQuery.GetOrders(calls);
+            watch.Stop();
+            Console.WriteLine("Mighty : " + watch.ElapsedMilliseconds);
 
             var nPocoQuery = new NPocoQueries();
             watch = new Stopwatch();
