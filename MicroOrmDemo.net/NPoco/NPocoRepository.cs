@@ -55,9 +55,6 @@ namespace MicroOrmDemo.net.NPoco
                                          INNER JOIN[Production].[Product] AS P ON P.ProductID = WO.ProductID");
 
                 return data.ToList();
-
-                var data2 = await GetWorkOrdersWithProduct(db);
-                return data2.Select(x => new Orders { Id = x.WorkOrderId, Date = x.DueDate, Quantity = x.OrderQty, ProductName = x.Product.Name }).ToList();
             }
         }
 
